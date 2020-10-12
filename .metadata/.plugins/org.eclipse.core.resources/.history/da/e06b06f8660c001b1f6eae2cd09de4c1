@@ -1,0 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+    <!-- 여기의 getParameter는 무조건 알아야 한다.-->
+    
+    <%
+    	String kor = request.getParameter("kor");
+    	out.print("입력된 국어점수 : " + kor + "<br>");
+    	String math = request.getParameter("math");
+    	out.print("입력된 수학점수 : " + math + "<br>");
+    	String eng = request.getParameter("eng");
+    	out.print("입력된 영어점수 : " + eng + "<br>");
+    	
+    %>
+    
