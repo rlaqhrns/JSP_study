@@ -1,0 +1,14 @@
+package green;
+
+public class Echo_main {
+
+	public static void main(String[] args) {
+		System.out.println("Hello World Bk");
+//		Echo echo = new Echo();
+//		
+//		echo.setMsg("뭘봐");
+//		
+//		System.out.println(echo.getMsg());
+	}
+
+}
