@@ -13,6 +13,21 @@
 		filew.write("");
 		filew.close();
 	}
+	String old = null;
+	File infile = new File(board_file);
+	StringBuffer buf= new StringBuffer();
+	try{
+		BufferedReader input = new BufferedReader(new FileReader(infile));
+		while((old=input.readLine()) != null){
+			buf.append(old+"\n");
+		}
+		input.close();
+	} catch(IOException e){
+		out.println(e);
+	}
+	old = buf.toString();
+	buf.setLength(0); // 가장 최근의 입력한 데이터가 상단에 위
+	
 	
 	if(request.getParameter("email") != ""){
 		email = "<a href = mailto :";
@@ -70,6 +85,7 @@
 		pw.println("<td bgcolor='#1F4F8F' height='1'></td>");
 		pw.println("</tr>");
 		pw.println("</table>");
+		pw.println("old");//추가
 		pw.close();
 	} catch (IOException e) {
 		out.println(e.getMessage());
