@@ -22,7 +22,9 @@
 				if((old = input.readLine()) != null){ // 한줄씩 읽어들인다.
 					int i = Integer.parseInt(old);
 					for(j = 0;j < i; j++){
+						
 						cnt.setCount();
+						
 					}
 					input.close(); //파일 닫기
 				}
