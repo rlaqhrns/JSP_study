@@ -1,0 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"<br>
+    pageEncoding="UTF-8"%><br>
+<%@ page import = "java.io.*" %><br>
+<%<br>
+	<br>
+	String infile = "/Users/rlaqhrns/dev/JSP/FileTest1014/WebContent/filew.jsp";<br>
+	String outfile = "/Users/rlaqhrns/dev/JSP/text/filewcopy.txt";<br>
+<br>
+	int ch = 0;<br>
+	File inf = new File(infile);<br>
+	File outf =  new File(outfile);<br>
+<br>
+	FileReader filer = new FileReader(inf);<br>
+	FileWriter filew = new FileWriter(outfile);<br>
+	try{<br>
+		while((ch = filer.read()) != -1){<br>
+			filew.write(ch);<br>
+		}<br>
+		filer.close();<br>
+		filew.close();<br>
+<br>
+	} catch(IOException e){<br>
+		out.println(e.getMessage());<br>
+		<br>
+	}<br>
+<br>
+<br>
+%><br>

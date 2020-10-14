@@ -1,1 +1,15 @@
-7
+out.println("<p>");
+        String [] dirlist = dir.list();
+        out.println("디렉토리/폴더들 <br>");
+       	out.println("<select size = 10>");
+       	for(i=0; i<dirlist.length;i++){
+       		afile = new File(indir, dirlist[i]);
+       		out.print("<option>" + dirlist[i]);
+       		if(afile.isFile()){
+       			out.print("(" + afile.length() +" Byte)");
+       			out.print("</option>");
+       			
+       		}
+       		out.println("</select>");
+       		
+       	}
