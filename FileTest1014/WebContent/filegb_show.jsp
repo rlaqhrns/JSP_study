@@ -34,7 +34,7 @@
     
     
     %>
-
+    
     <center>
         <a href="filegb_write.html">
             <img src="./image/write.gif" alt="" width="54px" height="19px" border="0"></a>
