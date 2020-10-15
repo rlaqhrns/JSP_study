@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function check() {
+            let blank = 0;
+            if (form1.id.value == "") blank = 1;
+            if (form1.password.value == "") blank = 1;
+            if (form1.name.value == "") blank = 1;
+            if (blank == 1) {
+                alert("내용 입력 하세요;;");
+                return false;
+            } else {
+                return true;
+            }
+
+        }
+
+        function check_num(str) {
+            if (str.isNaN()) {
+                alert("숫자만 입력하세요");
+
+                return "";
+            }
+
+            return str;
+
+        }
+    </script>
+
+    <form action="insert.jsp" method="post" name="form1" onsubmit="return check()">
+        사용자 id <input type="text" name="id"><br>
+        암호<input type="password" name="password" onkeyup="this.value=check_num(this.value)"><br>
+        이름<input type="text" name="name"><br>
+        이메일<input type="text" name="emil"><br>
+        <input type="submit" value="확인">
+        <input type="reset" value="다시작성">
+    </form>
+</body>
+
+</html>

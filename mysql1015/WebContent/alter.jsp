@@ -24,7 +24,7 @@ System.out.println("1단계!!");
 try {
 	System.out.println("3단계!!");
 	conn = DriverManager.getConnection(dbURL, dbId, dbPassword);
-	System.out.println("db 연결 성공!!");
+	System.out.println("db 연결 성공!!" + conn);// 
 
 } catch (SQLException e) {
 	System.out.println("2단계!!");
@@ -33,20 +33,27 @@ try {
 
 try {
 	st = conn.createStatement();
-	st.executeUpdate("create table woori(id char(10) primary key, name char(10))");
+	st.executeUpdate("alter table woori modify name char(10) not null");
+	st.executeUpdate("alter table woori add email char(30)");
+	st.executeUpdate("alter table woori add password integer");
 } catch (SQLException e) {
 	out.println(e);
 }
 
 try {
 	rs = st.executeQuery("select * from woori");
-	ResultSetMetaData rsmd = rs.getMetaData(); //Metadata는 정
-	out.println("새로운 테이블이 생성되었습니다. <br>");
+	System.out.println(rs);
+	ResultSetMetaData rsmd = rs.getMetaData(); //Metadata는 정보
+	
+	out.println("새로운 테이블이 수정되었습니다. <br>");
 	out.println(rsmd.getColumnCount() + "개의 컬럼(필드)를 가지고 있습니다.");
-	out.println("첫번째 칼럼은 " + rsmd.getColumnName(1) + "<br>");
-	out.println("두번째 칼럼은 " + rsmd.getColumnName(2) + "<br>");
-	out.println("첫번째 칼럼은 " + rsmd.getColumnName(3) + "<br>");
-	out.println("두번째 칼럼은 " + rsmd.getColumnName(4) + "<br>");
+	for(int i = 1;i<=rsmd.getColumnCount();i++){
+	out.println(i+" 번째 칼럼은 " + rsmd.getColumnName(i));
+	out.println("이고 유형은 " + rsmd.getColumnTypeName(i));
+	out.println("이며 크기는 " + rsmd.getPrecision(i) + "<br>");
+		
+	}
+	
 	rs.close();
 	st.close();
 	conn.close();
