@@ -2,25 +2,48 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="./check.js"></script>
 <script>
-    function check(){
-        var blank = 0;
-        if(from1.id.value = "") blank = 1;
-        if(from1.password.value = "") blank = 1;
-        if(from1.name.value = "") blank = 1;
-        if(from1.email.value = "") blank = 1;
-        if(blank == 1) {
-            alert("빈칸이 있습니다. 채워주세요.");
-            return false;
-        }
-        else return true;
-    }
+
+
+    
+    $(document).ready(function(){ // 제이커리 추가
+        $("[type=submit]").click(function(){
+            check();
+            
+        });
+
+
+    })
+    // function check(){
+    //     var blank = 0;
+    //     if(from1.id.value = "") blank = 1;
+    //     if(from1.password.value = "") blank = 1;
+    //     if(from1.name.value = "") blank = 1;
+    //     if(from1.email.value = "") blank = 1;
+    //     if(blank == 1) {
+    //         alert("빈칸이 있습니다. 채워주세요.");
+    //         return false;
+    //     }
+    //     else return true;
+    // }
 
     // $(document0).ready(function(){
     //     $("form").click(function(){
     //         check();
     //     })
     // })
+    // function check_num(str) {
+    //         if (isNaN(str)) {
+    //             alert("숫자만 입력하세요");
+
+    //             return "";
+    //         }
+
+    //         return str;
+
+    //     }
     
 </script>
 <title>Insert title here</title>

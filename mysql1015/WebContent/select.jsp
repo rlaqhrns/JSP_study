@@ -3,7 +3,7 @@
 <%@ page language ="java" import ="java.sql.*" %>
 <% request.setCharacterEncoding("utf8"); %>
 <%
-   String id = request.getParameter("id");
+   String id = request.getParameter("id").trim();
    String password = request.getParameter("password").trim();
    String sql = "select * from woori where id=?";
    Connection conn = null;
@@ -40,16 +40,16 @@
         		if(password.equals(rs.getString("password"))) {%>
         			사용자 id가 <%= id %>인 회원의 정보는 다음과 같습니다.
         			정보를 변경하려면 내용을 입력한 다음 <수정하기> 버튼을 누르세요.
-        			<form action="update.jsp" name="form1" method="post">
-                 <input type="hidden" name="id" value="<%= id %>">
-                 <br>이름 :
-        				<input type="text" name="name" value="<%=rs.getString("email") %>">
-                    <br>E-mail :
-                    <input type="email" name="email" value="수정하기">
-                    <a href="delete.jsp?id=<%=id%>">삭제하기</a>
-
-        			</form>
-        		<% } else { %>
+        		<form action="update.jsp" name="form1" method="post">
+					아이디:
+					<input type="text" name="id" value="<%= id %>">
+					<br>이름:
+					<input type="text" name="name" value="<%=rs.getString("name") %>">
+					<br>E-Mail:
+					<input type="text" name="email" value="<%=rs.getString("email") %>"><br>
+					<input type="submit" name="change" value="수정하기">
+					<a href="delete.jsp?id=<%=id%>">삭제하기</a>
+				</form>
                   비밀번호가 틀립니다.
              <% }
         	}
