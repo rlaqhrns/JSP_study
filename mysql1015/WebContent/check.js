@@ -12,6 +12,7 @@ function checkFail(fail){
        
           event.preventDefault(); //다른 페이지로 이동하지 못 하도록 방지
        }
+       
     })
     console.log(arr);//배열 데이터 확인
  }
