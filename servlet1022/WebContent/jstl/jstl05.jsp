@@ -1,50 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+ <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+ <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
+ <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-    <p><a href="jstl04.jsp">[이전]</a></p>
-    <p><a href="jstl06.jsp">[다음]</a></p>
- 	
-    <h2>c:if 태그</h2>
-    <c:if test="${10>20}" var = "result1">
-    1) 10은 20보다 크다 <br>
-    </c:if>
-    2) ${result1} <br>
-    <c:if test="${10<20}" var = "result2">
-    3) 10은 20보다 크다<br>
-    </c:if>
-    4)${result}<br>
-    <p><a href="jstl03.jsp">[이전]</a></p>
-    <p><a href="jstl05.jsp">[다음]</a></p>
-    <%!
-        public static class MyMember{
-            int no;
-            String name;
-            public int getNo(){return this.no;}
-            public void setNo(int no){this.no = no;}
-            public String getName(){return this.name;}
-            public void setName(String name){this.name = name;}
-        }
-        %>
-        <% 
-            MyMember member = new MyMember();
-            member.setNo(100);
-            member.setName("홍길동");
-            pageContext.setAttribute("member",member);
-        
-        %>
-        9) ${member.name}<br>
-        <c:set target = "${member}" property = "name" value="임꺽정" />
-        10) ${member.name}<br>
-       
-    
-    <p><a href="jstl01.jsp">[이전]</a></p>
-    <p><a href="jstl03.jsp">[다음]</a></p>
+<p><a href="jstl04.jsp">[이전]</a><a href="jstl06.jsp">[다음]</a></p>
+<h2>c:choose 태그</h2>
+
+<c:set var="userid" value="admin" />
+   <c:choose>
+      <c:when test="${userid == 'hong' }">
+         홍길동님 반갑습니다
+      </c:when>
+      <c:when test="${userid == 'leem' }">
+         임걱정님 반갑습니다
+      </c:when>
+      <c:when test="${userid == 'admin' }">
+         관리자 전용 페이지입니다.
+      </c:when>
+      <c:otherwise>
+         등록되지 않은 사용자 입니다.
+      </c:otherwise>
+   </c:choose>
+
+<p><a href="jstl04.jsp">[이전]</a><a href="jstl06.jsp">[다음]</a></p>
 </body>
 </html>
