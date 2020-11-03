@@ -10,11 +10,12 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebListener;
 
 import green.dao.MemberDao;
+import green.util.DBConnectionPool;
 
 @WebListener
 public class ContextLoaderListener implements ServletContextListener {
    
-   Connection conn;
+	DBConnectionPool connPool;
     public void contextDestroyed(ServletContextEvent sce)  { 
        //db커넥션 객체 해제
        //웹 애플리케이션 종료될 때 호출되는 메서드
@@ -30,7 +31,7 @@ public class ContextLoaderListener implements ServletContextListener {
          System.out.println("DB 접속 성공 "+conn);
          sc.setAttribute("conn", conn);
          MemberDao memberDao = new MemberDao();
-         memberDao.setConnection(conn);
+         memberDao.(conn);
          sc.setAttribute("memberDao", memberDao);
       } catch (Throwable e) {
          e.printStackTrace();
